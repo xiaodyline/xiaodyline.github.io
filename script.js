@@ -6,7 +6,10 @@
  const next=document.getElementById("next");
  const menu=document.querySelector(".menu");
  const nav=document.querySelector(".header nav");
- const dialog=document.getElementById("projectDialog");\n const dialogTitle=document.getElementById("dialogTitle");\n const dialogText=document.getElementById("dialogText");\n const dialogTags=document.getElementById("dialogTags");
+ const dialog=document.getElementById("projectDialog");
+ const dialogTitle=document.getElementById("dialogTitle");
+ const dialogText=document.getElementById("dialogText");
+ const dialogTags=document.getElementById("dialogTags");
  const projects={
   alpha:{title:"Orbit Workspace",text:"一个用于团队协作的虚构产品概念。演示项目管理、任务分配与活动趋势的组合界面。",tags:["React","TypeScript","Dashboard","Product UX"]},
   beta:{title:"Northstar Analytics",text:"一个用于展示数据探索与业务分析能力的虚构产品概念。图表和指标均为演示数据。",tags:["Next.js","Data Visualization","Charts","Interaction"]},
