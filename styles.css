@@ -111,3 +111,11 @@
 }
 @media(max-width:800px){.illustration.playful-scene{max-width:620px;margin-inline:auto}}
 @media(max-width:560px){.illustration.playful-scene{border-radius:8px}.playful-scene svg{min-height:0}}
+
+/* The hero illustration follows a warm, playful hand-drawn game-art direction. */
+.playful-scene{background:#fff8e8;box-shadow:0 1px 0 rgba(40,48,42,.04)}
+.playful-scene svg{width:100%;height:auto;display:block}
+@media(prefers-reduced-motion:reduce){
+ .playful-scene svg animate,.playful-scene svg animateTransform{display:none!important}
+ .scene-cloud,.skyline-wave,.runner,.runner-head,.runner-front-leg,.runner-back-leg,.runner-arm,.runner-other-arm,.runner-shadow,.little-spark{animation:none!important}
+}
