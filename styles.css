@@ -33,3 +33,16 @@
 .project-copy>div{flex-wrap:wrap}
 .project-copy button{white-space:nowrap}
 @media(max-width:560px){.stack>div:nth-child(2)>p>small{flex-basis:88px}}
+
+/* Final polish: clearer mock UI controls, readable toolkit labels, and safer mobile spacing. */
+.publish-pill{margin-left:auto;border-radius:4px;background:#272b31;color:#fff;padding:4px 9px;font:7px "DM Sans",sans-serif}
+.stack>div:nth-child(2)>p{gap:12px;line-height:1.9}
+.stack>div:nth-child(2)>p>small{color:#477b70}
+.project-copy>div{row-gap:7px}
+.project-copy>div button{margin-left:auto}
+@media(max-width:560px){
+ .rail{padding-left:18px;padding-right:18px}
+ .project{flex-basis:88vw}
+ .project-copy>div button{margin-left:0}
+ .hero-art .art-canvas{min-height:260px}
+}
