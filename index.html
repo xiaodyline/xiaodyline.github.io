@@ -3,85 +3,296 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>五子棋本地对战</title>
+  <meta name="theme-color" content="#0b1220">
+  <meta name="description" content="刘迪的个人主页，关注全栈开发、Agent 工程与前端性能优化。">
+  <meta property="og:title" content="刘迪 | Full-stack & Agent Engineer">
+  <meta property="og:description" content="全栈开发、Agent 工程与性能优化实践。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://xiaodyline.github.io/">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
+  <title>刘迪 | 全栈开发 · Agent 工程</title>
 </head>
 <body>
-  <main class="app">
-    <section class="panel">
-      <h1>五子棋本地对战</h1>
+  <div class="site-shell">
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="回到首页">
+        <span class="brand-mark">LD</span>
+        <span class="brand-name">LIU DI<span class="brand-dot">.</span></span>
+      </a>
+      <button class="menu-toggle" id="menuToggle" type="button" aria-label="打开导航" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+      <nav class="main-nav" id="mainNav" aria-label="主导航">
+        <a href="#focus">关注方向</a>
+        <a href="#projects">项目实践</a>
+        <a href="#experience">经历</a>
+        <a href="#about">关于我</a>
+        <a class="nav-contact" href="https://github.com/xiaodyline" target="_blank" rel="noreferrer">GitHub <span>↗</span></a>
+      </nav>
+    </header>
 
-      <form id="setupForm" class="card setup" novalidate>
-        <h2>开局设置</h2>
-        <label class="field checkbox-field">
-          <input type="checkbox" id="forbiddenEnabled" checked>
-          <span>启用禁手（黑方长连/三三/四四）</span>
-        </label>
-        <label class="field">
-          <span>局时（分钟）</span>
-          <input id="gameMinutes" type="number" min="1" max="180" step="1" value="20" required>
-        </label>
-        <label class="field">
-          <span>步时（秒）</span>
-          <input id="moveSeconds" type="number" min="5" max="300" step="1" value="30" required>
-        </label>
-        <button id="startBtn" type="submit" class="primary">开始新局</button>
-        <p id="formError" class="error" aria-live="polite"></p>
-      </form>
-
-      <section class="card status">
-        <h2>对局状态</h2>
-        <p id="phaseText">未开始，请先设置参数并开始新局。</p>
-        <p id="turnText" class="turn-badge">当前行棋：黑方</p>
-        <div class="clock-grid">
-          <div>
-            <span class="label">黑方局时</span>
-            <strong id="blackGameClock">20:00</strong>
+    <main id="top">
+      <section class="hero section-wrap">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="status-dot"></span> OPEN TO ENGINEERING OPPORTUNITIES</div>
+          <p class="hero-kicker">FULL-STACK DEVELOPMENT <span>×</span> AGENT ENGINEERING</p>
+          <h1>把复杂问题拆清楚，<br><span>把工程结果做扎实。</span></h1>
+          <p class="hero-summary">
+            你好，我是 <strong>刘迪</strong>。计算机技术硕士研究生，有近两年企业软件开发经验和全栈开发实践。
+            关注产品功能落地、前端性能优化，以及 Agent 应用的工程化建设。
+          </p>
+          <div class="hero-tags">
+            <span>React / Next.js</span>
+            <span>TypeScript</span>
+            <span>Python / FastAPI</span>
+            <span>Agent / RAG</span>
           </div>
-          <div>
-            <span class="label">白方局时</span>
-            <strong id="whiteGameClock">20:00</strong>
-          </div>
-          <div>
-            <span class="label">当前步时</span>
-            <strong id="moveClock">00:30</strong>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#projects">查看项目实践 <span>↓</span></a>
+            <a class="button button-quiet" href="https://github.com/xiaodyline" target="_blank" rel="noreferrer">访问 GitHub <span>↗</span></a>
           </div>
         </div>
-        <div class="quota-grid">
-          <span>黑方悔棋剩余：<strong id="blackUndoQuota">3</strong></span>
-          <span>白方悔棋剩余：<strong id="whiteUndoQuota">3</strong></span>
-        </div>
-        <p id="messageText" class="message"></p>
+        <aside class="hero-card" aria-label="个人简介">
+          <div class="hero-card-top">
+            <span class="card-label">ENGINEERING NOTES / 2026</span>
+            <span class="card-index">01 — 04</span>
+          </div>
+          <div class="profile-row">
+            <img class="avatar" src="https://avatars.githubusercontent.com/u/50955717?v=4" alt="刘迪的 GitHub 头像">
+            <div>
+              <h2>刘迪 <span class="name-en">Liu Di</span></h2>
+              <p>Full-stack & Agent Engineer</p>
+            </div>
+          </div>
+          <div class="hero-divider"></div>
+          <div class="metric-list">
+            <div class="metric-item">
+              <span class="metric-value">2 <small>→</small> 77</span>
+              <span class="metric-desc">长对话场景页面帧率 · FPS</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-value">97.9<span class="metric-unit">%</span></span>
+              <span class="metric-desc">三张背景图资源体积缩减</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-value">38 <small>→</small> 9</span>
+              <span class="metric-desc">Agent 默认工具数量</span>
+            </div>
+          </div>
+          <div class="hero-card-foot">
+            <span>BUILD · MEASURE · IMPROVE</span>
+            <span class="signal-bars"><i></i><i></i><i></i><i></i><i></i></span>
+          </div>
+        </aside>
+        <div class="hero-orbit orbit-one"></div>
+        <div class="hero-orbit orbit-two"></div>
       </section>
 
-      <section class="card actions">
-        <h2>对局操作</h2>
-        <div class="btn-row">
-          <button id="undoBtn" type="button">悔棋（需对方确认）</button>
-          <button id="drawBtn" type="button">和棋（需对方确认）</button>
-          <button id="resignBtn" type="button" class="danger">认输</button>
+      <section class="ticker" aria-label="技术方向">
+        <div class="ticker-track">
+          <span>PRODUCT ENGINEERING</span><b>✳</b><span>FRONTEND PERFORMANCE</span><b>✳</b><span>AGENT WORKFLOW</span><b>✳</b><span>FULL-STACK DELIVERY</span><b>✳</b><span>PRODUCT ENGINEERING</span><b>✳</b><span>FRONTEND PERFORMANCE</span><b>✳</b><span>AGENT WORKFLOW</span><b>✳</b><span>FULL-STACK DELIVERY</span>
         </div>
       </section>
-    </section>
 
-    <section class="board-section">
-      <div id="boardCard" class="board-card card">
-        <canvas id="boardCanvas" aria-label="五子棋棋盘" role="img"></canvas>
-      </div>
-    </section>
-  </main>
+      <section class="content-section section-wrap" id="focus">
+        <div class="section-heading">
+          <div>
+            <p class="section-overline">WHAT I WORK ON</p>
+            <h2>关注方向<span class="accent">.</span></h2>
+          </div>
+          <p class="section-intro">从用户需求到系统交付，重视功能完整性、工程质量与实际体验。</p>
+        </div>
+        <div class="focus-grid">
+          <article class="focus-card">
+            <span class="focus-number">01</span>
+            <div class="focus-icon">⌘</div>
+            <h3>全栈业务开发</h3>
+            <p>参与需求拆解、页面交互、API 设计与数据持久化，能够围绕业务链路推进功能交付。</p>
+            <div class="mini-tags"><span>React</span><span>Next.js</span><span>FastAPI</span></div>
+          </article>
+          <article class="focus-card focus-card-featured">
+            <span class="focus-number">02</span>
+            <div class="focus-icon">↗</div>
+            <h3>Agent 应用工程</h3>
+            <p>关注 Agent 工作流、工具调用、Skill 按需激活与 RAG 检索，让模型能力融入真实业务流程。</p>
+            <div class="mini-tags"><span>LangGraph</span><span>RAG</span><span>Tool Calling</span></div>
+          </article>
+          <article class="focus-card">
+            <span class="focus-number">03</span>
+            <div class="focus-icon">◌</div>
+            <h3>性能与体验优化</h3>
+            <p>通过性能分析定位瓶颈，围绕渲染、资源加载和数据请求做针对性优化，并用数据验证结果。</p>
+            <div class="mini-tags"><span>Rendering</span><span>Web Vitals</span><span>Profiling</span></div>
+          </article>
+        </div>
+      </section>
 
-  <div id="modalOverlay" class="modal hidden" aria-hidden="true">
-    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-      <h3 id="modalTitle">提示</h3>
-      <p id="modalMessage"></p>
-      <div class="modal-actions">
-        <button id="modalConfirm" type="button" class="primary">确认</button>
-        <button id="modalCancel" type="button">取消</button>
-      </div>
-    </div>
+      <section class="content-section projects-section" id="projects">
+        <div class="section-wrap">
+          <div class="section-heading">
+            <div>
+              <p class="section-overline">SELECTED WORK</p>
+              <h2>项目实践<span class="accent">.</span></h2>
+            </div>
+            <p class="section-intro">以真实业务问题为起点，记录做过的系统、解决的问题与可验证的结果。</p>
+          </div>
+          <div class="project-grid">
+            <article class="project-card project-main">
+              <div class="project-topline"><span class="project-type">INTERNSHIP · EDUCATION AI</span><span class="project-year">2026 — NOW</span></div>
+              <div class="project-title-row"><h3>NeoAgent</h3><span class="project-mark">01</span></div>
+              <p class="project-subtitle">K12 教育 AI Agent 平台</p>
+              <p class="project-description">参与教学活动模块全栈开发，覆盖教师创建与发布、学生作答、结果复盘和教师统计看板，打通 AI 生成内容到教学应用的业务链路。</p>
+              <div class="project-outcome">
+                <div><strong>2 → 77 FPS</strong><span>长对话渲染性能阶段性复测</span></div>
+                <div><strong>38 → 9</strong><span>默认工具数量按需收敛</span></div>
+              </div>
+              <div class="project-tags"><span>Next.js</span><span>React</span><span>TypeScript</span><span>FastAPI</span><span>PostgreSQL</span><span>SSE</span></div>
+            </article>
+
+            <article class="project-card">
+              <div class="project-topline"><span class="project-type">ENTERPRISE SOFTWARE</span><span class="project-year">2021 — 2023</span></div>
+              <div class="project-title-row"><h3>企业 MDM 系统</h3><span class="project-mark">02</span></div>
+              <p class="project-subtitle">主数据管理与业务系统开发</p>
+              <p class="project-description">负责查询页面、业务表单和接口联调。针对多表关联与大量字段加载造成的性能瓶颈，精简查询和返回数据。</p>
+              <div class="project-highlight"><strong>30s+ <span>→</span> ~300ms</strong><small>目标页面查询耗时</small></div>
+              <div class="project-tags"><span>Java</span><span>Spring Boot</span><span>JavaScript</span><span>SQL</span></div>
+            </article>
+
+            <article class="project-card">
+              <div class="project-topline"><span class="project-type">PERSONAL PROJECT</span><span class="project-year">2026</span></div>
+              <div class="project-title-row"><h3>心理健康 AI 助手</h3><span class="project-mark">03</span></div>
+              <p class="project-subtitle">结合知识检索的多轮对话应用</p>
+              <p class="project-description">构建混合检索、结果重排与有效性过滤流程；基于 LangGraph 编排会话状态，并实现 SSE 流式响应和身份认证续期。</p>
+              <div class="project-tags"><span>React</span><span>NestJS</span><span>LangGraph</span><span>RAG</span><span>PostgreSQL</span></div>
+            </article>
+
+            <article class="project-card">
+              <div class="project-topline"><span class="project-type">OPEN SOURCE · WEB EXTENSION</span><span class="project-year">2026</span></div>
+              <div class="project-title-row"><h3>NextAI Translator</h3><span class="project-mark">04</span></div>
+              <p class="project-subtitle">AI 浏览器翻译扩展</p>
+              <p class="project-description">面向网页划词翻译、文本润色和内容总结，支持流式输出、多语言互译、自定义模型服务与翻译历史。</p>
+              <a class="project-link" href="https://github.com/xiaodyline/nextai-translator" target="_blank" rel="noreferrer">查看项目仓库 <span>↗</span></a>
+              <div class="project-tags"><span>TypeScript</span><span>Browser Extension</span><span>LLM</span></div>
+            </article>
+
+            <article class="project-card">
+              <div class="project-topline"><span class="project-type">FULL-STACK PRACTICE</span><span class="project-year">2026</span></div>
+              <div class="project-title-row"><h3>GCFeed</h3><span class="project-mark">05</span></div>
+              <p class="project-subtitle">短视频 Feed 系统</p>
+              <p class="project-description">实践内容供给、Feed 分发与互动链路，包含缓存、异步消息、监控指标和前后端工程。</p>
+              <a class="project-link" href="https://github.com/xiaodyline/GCFeed" target="_blank" rel="noreferrer">查看项目仓库 <span>↗</span></a>
+              <div class="project-tags"><span>Go</span><span>React</span><span>MySQL</span><span>Redis</span><span>RabbitMQ</span></div>
+            </article>
+
+            <article class="project-card">
+              <div class="project-topline"><span class="project-type">RESEARCH ENGINEERING</span><span class="project-year">2025 — 2026</span></div>
+              <div class="project-title-row"><h3>语义地图实验系统</h3><span class="project-mark">06</span></div>
+              <p class="project-subtitle">遥感影像智能识别与地理信息融合</p>
+              <p class="project-description">参与遥感影像地物提取，将模型分割结果映射到地理坐标，并通过跨语言服务接入 QGIS 桌面端。</p>
+              <div class="project-tags"><span>Python</span><span>SAM 3</span><span>gRPC</span><span>C++</span><span>QGIS</span></div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section section-wrap" id="experience">
+        <div class="section-heading">
+          <div>
+            <p class="section-overline">EXPERIENCE</p>
+            <h2>经历与成长<span class="accent">.</span></h2>
+          </div>
+          <p class="section-intro">从企业软件开发到 AI 应用工程，持续积累完整的产品研发经验。</p>
+        </div>
+        <div class="timeline">
+          <article class="timeline-item">
+            <div class="timeline-date">2026.07 — 至今</div>
+            <div class="timeline-content">
+              <span class="timeline-type">FULL-STACK INTERN</span>
+              <h3>深圳晞星智能科技有限公司</h3>
+              <p class="timeline-role">全栈开发实习生 · 教育 AI Agent 平台</p>
+              <p>负责教学活动相关功能，参与前后端开发、页面性能优化、题型运行时复用与 Agent 工具链迭代。</p>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <div class="timeline-date">2021.07 — 2023.06</div>
+            <div class="timeline-content">
+              <span class="timeline-type">SOFTWARE ENGINEER</span>
+              <h3>北京亿信华辰软件有限责任公司</h3>
+              <p class="timeline-role">软件开发工程师 · 企业 MDM 系统</p>
+              <p>参与企业主数据管理系统的页面、数据和接口开发，积累需求分析、业务联调与项目交付经验。</p>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <div class="timeline-date">2024.09 — 2027</div>
+            <div class="timeline-content">
+              <span class="timeline-type">MASTER'S DEGREE</span>
+              <h3>中国地质大学（武汉）</h3>
+              <p class="timeline-role">计算机技术 · 硕士研究生</p>
+              <p>研究生阶段持续参与软件工程与 AI 应用实践，关注多跳问答、检索增强生成及 Agent 系统。</p>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <div class="timeline-date">2017.09 — 2021.06</div>
+            <div class="timeline-content">
+              <span class="timeline-type">BACHELOR'S DEGREE</span>
+              <h3>湖北大学</h3>
+              <p class="timeline-role">软件工程 · 本科</p>
+              <p>获得蓝桥杯全国总决赛 Java 软件开发大学 B 组三等奖、软件设计师（中级）等荣誉与资格。</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="stack-section" id="stack">
+        <div class="section-wrap">
+          <div class="section-heading">
+            <div>
+              <p class="section-overline">TOOLKIT</p>
+              <h2>技术工具箱<span class="accent">.</span></h2>
+            </div>
+            <p class="section-intro">围绕实际项目使用技术，不以技术名词数量作为能力证明。</p>
+          </div>
+          <div class="stack-grid">
+            <div class="stack-group"><span>01 / FRONTEND</span><h3>前端开发</h3><p>JavaScript · TypeScript · React · Next.js · Vite · HTML · CSS</p></div>
+            <div class="stack-group"><span>02 / BACKEND</span><h3>后端与数据</h3><p>Python · FastAPI · Node.js · NestJS · Java · Spring Boot · PostgreSQL · Redis</p></div>
+            <div class="stack-group"><span>03 / AI ENGINEERING</span><h3>Agent 与检索</h3><p>LangGraph · RAG · Embedding · Hybrid Search · Reranking · Tool Calling · SSE</p></div>
+            <div class="stack-group"><span>04 / ENGINEERING</span><h3>工程实践</h3><p>Git · Docker · Playwright · Vitest · REST API · Performance Profiling</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section section-wrap about-section" id="about">
+        <div class="about-panel">
+          <div class="about-main">
+            <p class="section-overline">A LITTLE ABOUT ME</p>
+            <h2>持续学习，也持续交付。<br><span>让每一次优化都有依据。</span></h2>
+            <p>我有企业软件开发、全栈产品研发和 Agent 应用实践经历。相比追逐单一技术热点，我更关注技术如何解决实际问题：页面是否更流畅、系统是否更稳定、功能是否真正可用。</p>
+            <a class="button button-primary" href="https://github.com/xiaodyline" target="_blank" rel="noreferrer">在 GitHub 上认识我 <span>↗</span></a>
+          </div>
+          <div class="about-side">
+            <div class="about-fact"><span>EDUCATION</span><strong>计算机技术 · 硕士</strong><small>中国地质大学（武汉）</small></div>
+            <div class="about-fact"><span>UNDERGRADUATE</span><strong>软件工程 · 本科</strong><small>湖北大学</small></div>
+            <div class="about-fact"><span>RECOGNITION</span><strong>蓝桥杯全国总决赛三等奖</strong><small>Java 软件开发大学 B 组</small></div>
+            <div class="about-fact"><span>INTERESTS</span><strong>排球 · 羽毛球 · 开源项目</strong><small>保持好奇，持续实践</small></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact-section section-wrap" id="contact">
+        <p class="section-overline">LET'S CONNECT</p>
+        <h2>一起把想法，<span>做成产品。</span></h2>
+        <p>如果你正在寻找能够参与全栈研发、AI 应用工程与性能优化的开发者，欢迎通过 GitHub 联系我。</p>
+        <a class="button button-light" href="https://github.com/xiaodyline" target="_blank" rel="noreferrer">github.com/xiaodyline <span>↗</span></a>
+      </section>
+    </main>
+
+    <footer class="site-footer section-wrap">
+      <a class="brand footer-brand" href="#top"><span class="brand-mark">LD</span><span class="brand-name">LIU DI<span class="brand-dot">.</span></span></a>
+      <p>© <span id="currentYear">2026</span> Liu Di. Built with care and shipped with GitHub Pages.</p>
+      <a href="#top" class="back-top">BACK TO TOP ↑</a>
+    </footer>
   </div>
-
   <script src="script.js"></script>
 </body>
 </html>
