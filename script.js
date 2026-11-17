@@ -16,7 +16,7 @@
  prev?.addEventListener("click",()=>rail?.scrollBy({left:-rail.clientWidth*.8,behavior:"smooth"}));
  next?.addEventListener("click",()=>rail?.scrollBy({left:rail.clientWidth*.8,behavior:"smooth"}));
  rail?.addEventListener("scroll",update,{passive:true});window.addEventListener("resize",update);update();
- menu?.addEventListener("click",()=>{const open=nav.classList.toggle("open");menu.setAttribute("aria-expanded",String(open));});
+ menu?.addEventListener("click",()=>{const open=nav.classList.toggle("open");menu.setAttribute("aria-expanded",String(open));menu.setAttribute("aria-label",open?"关闭菜单":"打开菜单");});
  nav?.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>nav.classList.remove("open")));
  document.getElementById("year").textContent=new Date().getFullYear();
  document.querySelectorAll("[data-project]").forEach(btn=>btn.addEventListener("click",()=>{const p=projects[btn.dataset.project];if(!p)return;document.getElementById("dialogTitle").textContent=p.title;document.getElementById("dialogText").textContent=p.text;document.getElementById("dialogTags").innerHTML=p.tags.map(t=>"<span>"+t+"</span>").join("");dialog.showModal();}));
