@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>五子棋本地对战</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app">
+    <section class="panel">
+      <h1>五子棋本地对战</h1>
+
+      <form id="setupForm" class="card setup" novalidate>
+        <h2>开局设置</h2>
+        <label class="field checkbox-field">
+          <input type="checkbox" id="forbiddenEnabled" checked>
+          <span>启用禁手（黑方长连/三三/四四）</span>
+        </label>
+        <label class="field">
+          <span>局时（分钟）</span>
+          <input id="gameMinutes" type="number" min="1" max="180" step="1" value="20" required>
+        </label>
+        <label class="field">
+          <span>步时（秒）</span>
+          <input id="moveSeconds" type="number" min="5" max="300" step="1" value="30" required>
+        </label>
+        <button id="startBtn" type="submit" class="primary">开始新局</button>
+        <p id="formError" class="error" aria-live="polite"></p>
+      </form>
+
+      <section class="card status">
+        <h2>对局状态</h2>
+        <p id="phaseText">未开始，请先设置参数并开始新局。</p>
+        <p id="turnText" class="turn-badge">当前行棋：黑方</p>
+        <div class="clock-grid">
+          <div>
+            <span class="label">黑方局时</span>
+            <strong id="blackGameClock">20:00</strong>
+          </div>
+          <div>
+            <span class="label">白方局时</span>
+            <strong id="whiteGameClock">20:00</strong>
+          </div>
+          <div>
+            <span class="label">当前步时</span>
+            <strong id="moveClock">00:30</strong>
+          </div>
+        </div>
+        <div class="quota-grid">
+          <span>黑方悔棋剩余：<strong id="blackUndoQuota">3</strong></span>
+          <span>白方悔棋剩余：<strong id="whiteUndoQuota">3</strong></span>
+        </div>
+        <p id="messageText" class="message"></p>
+      </section>
+
+      <section class="card actions">
+        <h2>对局操作</h2>
+        <div class="btn-row">
+          <button id="undoBtn" type="button">悔棋（需对方确认）</button>
+          <button id="drawBtn" type="button">和棋（需对方确认）</button>
+          <button id="resignBtn" type="button" class="danger">认输</button>
+        </div>
+      </section>
+    </section>
+
+    <section class="board-section">
+      <div id="boardCard" class="board-card card">
+        <canvas id="boardCanvas" aria-label="五子棋棋盘" role="img"></canvas>
+      </div>
+    </section>
+  </main>
+
+  <div id="modalOverlay" class="modal hidden" aria-hidden="true">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <h3 id="modalTitle">提示</h3>
+      <p id="modalMessage"></p>
+      <div class="modal-actions">
+        <button id="modalConfirm" type="button" class="primary">确认</button>
+        <button id="modalCancel" type="button">取消</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
