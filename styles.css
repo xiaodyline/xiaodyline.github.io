@@ -46,3 +46,7 @@
  .project-copy>div button{margin-left:0}
  .hero-art .art-canvas{min-height:260px}
 }
+
+/* Mobile navigation dropdown is anchored to the header, not the viewport. */
+.header{position:relative}
+@media(max-width:560px){.header nav{z-index:30;box-shadow:0 12px 28px rgba(24,34,30,.08)}}
