@@ -50,3 +50,34 @@
 /* Mobile navigation dropdown is anchored to the header, not the viewport. */
 .header{position:relative}
 @media(max-width:560px){.header nav{z-index:30;box-shadow:0 12px 28px rgba(24,34,30,.08)}}
+
+/* Typography pass: reduce micro-label density and make supporting copy readable. */
+.header nav{font-size:14px}
+.github,.underlink{font-size:13px}
+.eyebrow{font-size:11px;letter-spacing:.04em}
+.hero-role{font-size:11px;letter-spacing:.04em}
+.intro{font-size:15px;line-height:1.9}
+.button{font-size:13px}
+.art-label{font-size:11px;letter-spacing:.04em}
+.numbers>div>small,.numbers>div:first-child>small{font:12px/1.6 "DM Sans","Noto Sans SC",sans-serif;letter-spacing:0}
+.number-intro p{font-size:15px}
+.section-index,.section-head small,.project-copy>small,.preview>label,.rail-foot,.disclaimer,.timeline time,.timeline>article>small,.stack>div:nth-child(2)>p>small,.contact>div>small,dialog>small,dialog .mock-note{font:11px/1.6 "DM Sans","Noto Sans SC",sans-serif;letter-spacing:.02em}
+.work-tools p,.section-side-note{font-size:13px}
+.project-copy p{font-size:13px;line-height:1.8}
+.project-copy>div span{font:11px "DM Sans",sans-serif}
+.project-copy button{font-size:12px}
+.timeline h3{font-size:16px}
+.timeline p,.about>div:nth-child(2)>p:not(.about-lede),.contact>div:nth-child(2)>p{font-size:14px}
+.stack>div:nth-child(2)>p{font-size:14px}
+.stack>div:nth-child(2)>p>small{font:11px "DM Sans","Noto Sans SC",sans-serif;letter-spacing:0}
+.footer small,.footer>a:last-child{font:10px "DM Sans",sans-serif;letter-spacing:.04em}
+.browser-bar{font-size:9px}
+.dash-main>small,.stat-cards small,.stat-cards em,.mini-chart>span,.finance>small,.finance p,.finance em,.months,.flow header,.flow-nodes>div small,.flow-nodes>div span,.flow footer{font-size:9px}
+@media(max-width:560px){
+ .hero h1{font-size:56px}
+ .intro{font-size:14px}
+ .numbers>div>small{font-size:11px}
+ .project-copy>div span{font-size:10px}
+ .stack>div:nth-child(2)>p{font-size:13px}
+ .footer small{font-size:9px}
+}
